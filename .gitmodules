@@ -1,0 +1,3 @@
+[submodule "Mesa-Protocol-graph"]
+	path = Mesa-Protocol-graph
+	url = https://github.com/vintageplayer/Mesa-Protocol-graph
