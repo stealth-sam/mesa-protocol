@@ -13,6 +13,10 @@ Components:
 4. Wallet Provider
 5. Javascript Client & Server
 
+Architecture
+![image](https://user-images.githubusercontent.com/113618460/190589729-f8bedfb9-06e5-4519-a5b2-5b77194138fb.png)
+
+
 ![ArchitectureImage](https://github.com/vintageplayer/Mesa-Protocol/blob/master/docs/images/HighFyMeWeb3.png?raw=true)
 
 Note: The contract code and graph indexer schema & mapping can be found [here](https://github.com/vintageplayer/Mesa-Protocol-graph).
