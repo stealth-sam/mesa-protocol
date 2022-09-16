@@ -14,7 +14,8 @@ Components:
 5. Javascript Client & Server
 
 Architecture
-![image](https://user-images.githubusercontent.com/113618460/190589729-f8bedfb9-06e5-4519-a5b2-5b77194138fb.png)
+![image](https://user-images.githubusercontent.com/113618460/190590728-e706383f-0d84-4806-bedf-83df1d31dd27.png)
+
 
 
 ![ArchitectureImage](https://github.com/vintageplayer/Mesa-Protocol/blob/master/docs/images/HighFyMeWeb3.png?raw=true)
