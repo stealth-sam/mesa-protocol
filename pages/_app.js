@@ -1,9 +1,8 @@
-import '../styles/globals.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-// Import Context
+import "../styles/globals.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Web3State from "../context/web3/Web3State";
 import UserState from "../context/user/UserState";
-import {ThemeProvider, CSSReset} from '@chakra-ui/core';
+import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -15,7 +14,7 @@ function MyApp({ Component, pageProps }) {
         </ThemeProvider>
       </UserState>
     </Web3State>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

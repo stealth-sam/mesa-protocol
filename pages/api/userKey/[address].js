@@ -1,14 +1,4 @@
-import {executeGraphQuery} from '../../../utils/serverUtils'
-// /api/userKey/0x3ca39cc540b972ef0e84dc67e4894aa745153eb3
-// {
-//     "data": {
-//         "account": {
-//             "accountAddress": "0x3ca39cc540b972ef0e84dc67e4894aa745153eb3",
-//             "keyCID": "bafybeibqupf6bmba6jsxntm3p4ku7m733r6yt7lpdrefek2izryygepap4"
-//         }
-//     }
-// }
-
+import { executeGraphQuery } from '../../../utils/serverUtils'
 export default async function userPublicKeyHandler({ query: { address } }, res) {
   const queryString = `{
         account (id: "${address}") {

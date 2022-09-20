@@ -6,15 +6,15 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Relayer is Ownable {
   using ECDSA for bytes32;
-  
+
   mapping(address => bool) public isWhitelisted;
-  
+
   // verify the data and execute the data at the target address
   function forward(address _to, address _from, bytes calldata _data, bytes memory _signature) external returns (bytes memory _result) {
     bool success;
-    
+
     verifySigner(_from, _data, _signature);
-    
+
     (success, _result) = _to.call(_data);
     if (!success) {
         // solhint-disable-next-line no-inline-assembly
@@ -33,7 +33,7 @@ contract Relayer is Ownable {
       require(isWhitelisted[msg.sender], "Address sending the request is not whitelisted!");
 
   }
-  
+
   // Recover signer public key and verify that it's a whitelisted signer.
   function recoverSigner(bytes32 message, bytes memory sig)
        public
@@ -41,6 +41,7 @@ contract Relayer is Ownable {
        returns (address)
     {
        uint8 v;
+       uint8 x;
        bytes32 r;
        bytes32 s;
        (v, r, s) = splitSignature(sig);
@@ -53,7 +54,7 @@ contract Relayer is Ownable {
        returns (uint8, bytes32, bytes32)
    {
        require(sig.length == 65);
-       
+
        bytes32 r;
        bytes32 s;
        uint8 v;
@@ -67,7 +68,7 @@ contract Relayer is Ownable {
        }
        return (v, r, s);
    }
-  
+
   function addToWhitelist(address _signer) external onlyOwner() {
       isWhitelisted[_signer] = true;
   }

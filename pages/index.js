@@ -10,8 +10,31 @@ import Web3Context from "../context/web3/Web3Context";
 import UserContext from "../context/user/UserContext";
 
 const App = () => {
-  const {web3DisplayMessage, web3Loading, address, web3Provider, connect, disconnect, web3Modal, provider, removeListeners, contract } = useContext(Web3Context);
-  const {userDisplayMessage, message, userCredits, userExists, userLoading, loggedInUser, loginUser, resetUser, createUser, isGasless, createUserGasless} = useContext(UserContext);
+  const {
+    web3DisplayMessage,
+    web3Loading,
+    address,
+    web3Provider,
+    connect,
+    disconnect,
+    web3Modal,
+    provider,
+    removeListeners,
+    contract,
+  } = useContext(Web3Context);
+  const {
+    userDisplayMessage,
+    message,
+    userCredits,
+    userExists,
+    userLoading,
+    loggedInUser,
+    loginUser,
+    resetUser,
+    createUser,
+    isGasless,
+    createUserGasless,
+  } = useContext(UserContext);
 
   const connectHandler = async (e) => {
     await connect();
@@ -21,7 +44,6 @@ const App = () => {
     disconnect();
   };
 
-  // Auto connect to the cached provider
   useEffect(() => {
     if (web3Modal && web3Modal.cachedProvider) {
       connect();
@@ -30,7 +52,6 @@ const App = () => {
 
   useEffect(() => {
     if (provider?.on) {
-      // Subscription Cleanup
       return () => {
         if (provider.removeListener) {
           removeListeners;
@@ -40,12 +61,11 @@ const App = () => {
   }, [provider, disconnect]);
 
   const createUserHandler = async (e) => {
-    if(!isGasless){
+    if (!isGasless) {
       createUser(address, contract);
     } else {
       createUserGasless(address, web3Provider);
     }
-    
   };
 
   useEffect(() => {
@@ -57,7 +77,7 @@ const App = () => {
 
   return (
     <>
-      { (address && loggedInUser == address) ?  (
+      {address && loggedInUser == address ? (
         <>
           <NavigationBar
             disconnectHandler={disconnectHandler}
@@ -66,8 +86,8 @@ const App = () => {
           />
           <Main address={address} />
         </>
-      ) : 
-        (<SignIn
+      ) : (
+        <SignIn
           web3Loading={web3Loading}
           web3Provider={web3Provider}
           connectHandler={connectHandler}
