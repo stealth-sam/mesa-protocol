@@ -48,4 +48,4 @@ function web3Reducer(state, action) {
   }
 }
 
-export default web3Reducer;
+export default web3Reducer || null;
